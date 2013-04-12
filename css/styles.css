@@ -4,7 +4,38 @@ body {
     padding: 0 25px;
 }
 
-#main {
+#header {
+    background: blue;
+    width: 100%; 
+    margin-top: 0px;  
+    padding: 0,0,0,0; 
+    height: 4em; 
+    text-align: center;
+    font-size: 2em;
+    position: top; 
+}
+.title h1{
+    margin-top: 0px;
+}
+#signinBtn {
+    float: right; 
+}
+#signinPopup {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    padding: 10px;
+    background: grey;
+    float: right;
+    clear: right;
+}
+#welcome {
+    text-align: left;  
+}
+/*#main {
     width: 500px;
     margin: auto;
     text-align: left;
@@ -37,4 +68,4 @@ body {
     font-size: 12px;
     color: green;
     line-height: 13px;
-}
+}*/
