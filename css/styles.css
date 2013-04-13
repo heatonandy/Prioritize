@@ -1,39 +1,89 @@
 body {
     background: #eee;
     text-align: center;
-    padding: 0 25px;
 }
-
-#header {
-    background: blue;
-    width: 100%; 
-    margin-top: 0px;  
-    padding: 0,0,0,0; 
-    height: 4em; 
-    text-align: center;
+header { 
+    margin: 0px 0px 0px 0px;  
+    padding-top: 15px; 
+    height: 2em; 
     font-size: 2em;
     position: top; 
 }
-.title h1{
+.title {
     margin-top: 0px;
+    float: left;
+    text-align: center;
+    width: 100%;
+    font-size: 42pt;
+    line-height: 42px;
+    overflow: hidden;
+    padding: 10px;
+}
+.top {
+    background: blue;
+    width: 100%;
+}
+#signinDiv {
+    display: inline-block;
+    position: top;
 }
 #signinBtn {
     float: right; 
+    margin: 0px 10px 0px 0px;
+    font-size: 18pt;
 }
 #signinPopup {
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
-    width: 200px;
+    margin: 0px 10px;
+    width: 500px;
     height: 100px;
     text-align: center;
     padding: 10px;
     background: grey;
     float: right;
     clear: right;
+    position: relative;
+}
+.ui-dialog,.ui-dialog,.ui-widget, .ui-widget-content, .ui-corner-all, .foo, .ui-draggable, .ui-resizable 
+{
+    background:grey !important
+}​
+.ui-dialog .ui-dialog-buttonpane { 
+    text-align: right;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { 
+    float: none;
+}
+.smallTextBtn {
+    font-size: 30pt;
+}
+#closeSigninPopup {
+    position: relative;
+    float: right;
+    margin: 0px 0px 3px;
 }
 #welcome {
     text-align: left;  
+    font-size: 16pt;
+    line-height: 16px;
+    margin: 0px;
+}
+#todoDiv {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    width: 300px;
+    height: 30px;
+    float: left;    
+}
+#tagDiv {
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+    width: 300px;
+    height: 30px;
+    float: left;
+    clear: left;
+    
 }
 /*#main {
     width: 500px;

@@ -5,28 +5,49 @@
   <title>My Parse App</title>
   <meta name="description" content="My Parse App">
   <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" src="js/parse.js"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.2.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <script type="text/javascript" src="js/prioritize.js"></script>
 </head>
 
 <body>
-  <div id="header">
+  <header class="top">
       <div class="title">
-        <h1>Prioritize</h1>
-        <input id="signinBtn" type="button" value="Sign In/Register" onclick=""/>
+        Prioritize
       </div>
-  </div> 
+  </header> 
+  <div id="signinDiv" class="top">
+    <input id="signinBtn" type="button" value="Sign In/Register" onclick=""/>
+  </div>
   <div id="signinPopup">
-    <span id="welcome">Welcome!</span>
+    <span id='welcome'>Welcome!</span>
     <form>
-      <input id="usernameInput" type="text" autocomplete="on" placeholder="username" /> <br>
-      <input id="passwordInput" type="password" placeholder="password" />
-      <input id="forgotPass" type="button" value="Forgot Password?" />
-      <input id="register" type="button" value="Register" />
+      <input id="usernameInput" type="text" autocomplete="on" placeholder="username" /><br>
+      <input id="passwordInput" type="password" placeholder="password" /><br>
+      <input id="forgotPassBtn" class="smallTextBtn" type="button" value="Forgot Password?" />
+      <input id="registerBtn" class="smallTextBtn" type="button" value="Register" />     
     </form>
+  </div>
+  <div id="registerPopup">
+    <span id='fillThisOut'>Fill this out to get started prioritizing your life!</span>
+    <form>
+      <input id="newFNameInput" type="text" autocomplete="on" placeholder="first name" /><br>
+      <input id="newLNameInput" type="text" autocomplete="on" placeholder="last name" /><br>
+      <input id="newUnameInput" type="text" autocomplete="on" placeholder="username" /><br>
+      <input id="newPassInput" type="password" placeholder="password" /><br>
+      <input id="newPassInput2" type="password" placeholder="confirm password" /><br>   
+    </form>
+  </div>
+  <div id="tagDiv">  
+    
+  </div>
+  <div id="todoDiv">
+    
   </div>
 </body>
 
