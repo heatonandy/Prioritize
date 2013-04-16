@@ -22,16 +22,14 @@ var wo = (function packageTodo() {
 				}); // end save
 			} // end finishTask function
 		}); // end ToDo Class*/
-
+	var Tag = Parse.Object.extend("Tag");
 
 	// variable declarations
 	var currentUser, tempUser, uName, pass;
 	// function declarations
 	var createNewTag, createNewTodo;
 
-	createNewTag = function () {
-		$('#tagsDiv').append("<input class='tag' type='button' value='" + $('#tagInput').val().toString() + "' />");
-	}
+	
 	// jQuery dialog login functions
 	$(function () {
 		// login div jquery dialog
@@ -169,5 +167,43 @@ var wo = (function packageTodo() {
 			$(".userBtnClass").val("Login/Register").attr('class', 'loginBtnClass');
 			$("#logoutPopup").dialog("close");
 		});
+		$( "#tagSortable" ).sortable({
+      		placeholder: "ui-state-highlight",
+      		start: function (e,ui){        // new lines to
+      			$(ui.placeholder).slideUp(); // remove popping
+			},                             // effect on start
+			change: function (e,ui){
+					$(ui.placeholder).hide().slideDown();
+			}
+   		});
+    	$( "#tagSortable" ).disableSelection();
+    	$( "#todoSortable" ).sortable({
+      		placeholder: "ui-state-highlight",
+      		start: function (e,ui){        // new lines to
+      			$(ui.placeholder).slideUp(); // remove popping
+			},                             // effect on start
+			change: function (e,ui){
+					$(ui.placeholder).hide().slideDown();
+			}
+   		});
+    	$( "#todoSortable" ).disableSelection();
 	}); // end anonymous jquery dialog funciton
+	return {
+		createNewTag: function () {
+			var tagTitle = $('#tagInput').val().toString();
+			$('#tagSortable').prepend("<li class='ui-state-default sortableItem'><input class='sortableItem' type='button' value='" + tagTitle + "' /></li><br>");
+			$('#tagInput').val('');
+			var tag = new Tag();
+			tag.set('title', tagTitle);
+			tag.set('user', currentUser);
+
+		},
+		createNewTodo: function () {
+			var todoTitle = $('#todoInput').val().toString();
+			if(todoTitle.trim() !== '') {
+				$('#todoSortable').prepend("<li class='ui-state-default sortableItem'><input class='sortableItem' type='button' value='" + todoTitle + "' /></li><br>");
+				$('#todoInput').val('');
+			}
+		}
+	}
 }()); // end wo 

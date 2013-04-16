@@ -31,11 +31,13 @@ header {
     float: right; 
     margin: 0px 10px 0px 0px;
     font-size: 18pt;
+    border-radius: 3px;
 }
 #userBtn {
     float: right; 
     margin: 0px 10px 0px 0px;
     font-size: 18pt;
+    border-radius: 3px;
 }
 #loginPopup {
     margin: 0px 10px;
@@ -61,7 +63,7 @@ header {
 }
 .ui-dialog,.ui-dialog,.ui-widget, .ui-widget-content, .ui-corner-all, .foo, .ui-draggable, .ui-resizable 
 {
-    background:grey !important
+    background:grey !important;
 }​
 .ui-dialog .ui-dialog-buttonpane { 
     text-align: right;
@@ -88,20 +90,21 @@ header {
     border-width: 1px;
     border-style: solid;
     width: 30%;
-    height: 33px;
+    height: auto;
     float: left;   
     margin-left: 5px; 
+    border-radius: 5px;
 }
 #tagDiv {
     border-color: red;
     border-width: 1px;
     border-style: solid;
     width: 15%;
-    height: 33px;
+    height: auto;
     float: left;
     clear: left;
     margin-left: 5px;
-    
+    border-radius: 5px;
 }
 .add {
     width: 33px;
@@ -114,37 +117,62 @@ header {
     float: left;
     display: inline-block;
 }
-/*#main {
-    width: 500px;
-    margin: auto;
-    text-align: left;
-    background: white;
-    padding: 50px 60px;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+#tagSortable {
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0;
+    width: 100%;
 }
-
-#main h1 {
-    margin-top: 0;
-    font-size: 35px;
+#tagSortable li {
+    margin: 0 !important;
+    font-size: 1.2em;
+    height: 1.5em;
 }
-
-#main ul {
-    padding-left: 20px;
+html>body #tagSortable li { 
+    height: 1.5em; 
+    line-height: 1.2em; 
+    margin: 0 !important;
 }
-
-#main .error {
-    border: 1px solid red;
-    background: #FDEFF0;
-    padding: 20px;
+#todoSortable {
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0;
+    width: 100%;
 }
-
-#main .success {
-    margin-top: 25px;
+#todoSortable li {
+    margin: 0 !important;
+    font-size: 1.2em;
+    height: 1.5em;
 }
-
-#main .success code {
-    font-size: 12px;
-    color: green;
-    line-height: 13px;
-}*/
+html>body #todoSortable li { 
+    height: 1.5em; 
+    line-height: 1.2em; 
+    margin: 0 !important;
+}
+.ui-state-highlight { 
+    height: 1.5em; 
+    line-height: 1.2em; 
+    margin: 0 !important;
+}
+#tagsDiv {
+    margin: 1px;
+    float: left;
+    position: relative;
+    width: 98%;
+    border-radius: 4px;
+}
+#todosDiv {
+    margin: 1px;
+    float: left;
+    position: relative;
+    width: 98%;
+    border-radius: 4px;
+}
+.sortableItem {
+    width: 80%;
+    float: left;
+}
+.ui-state-default {
+    margin: 0 !important;
+    width: 100%;
+}

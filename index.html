@@ -48,19 +48,23 @@
   </div>
   <div id="tagDiv">  
     <div id='insertTagDiv'>
-      <div>
-        <input id='tagInput' class='mainInput' type='text' placeholder='Add new tag here'/>
-      </div>
-      <a id='addNewTagBtn' href='javascript:void(0);' type='image' src='img/orangePlus32x32.png' class='add' onclick='wo.createNewTag()'/>
+      <input id='tagInput' class='mainInput' type='text' placeholder='Add new tag here'/>
+      <input id='addNewTagBtn' type='image' src='img/orangePlus32x32.png' class='add' onclick='wo.createNewTag()'/>
     </div>
     <div id='tagsDiv'>
+        <ul id='tagSortable' class='sortableItem'>
+        </ul>
     </div>
   </div>
   <div id="todoDiv">
-    <div>
+    <div id='insertTodoDiv'>
       <input id='todoInput' class='mainInput' type='text' placeholder='Add new todo item here'/>
+      <input id='addNewTodoBtn' type='image' src='img/bluePlus32x32.png' class='add' onclick='wo.createNewTodo()'/>
     </div>
-      <input id='addNewTodoBtn' type='image' src='img/bluePlus32x32.png' class='add' />
+    <div id='todosDiv'>
+      <ul id='todoSortable' class='sortableItem'>
+      </ul>
+    </div>
   </div>
 </body>
 
