@@ -21,10 +21,10 @@
         Prioritize
       </div>
   </header> 
-  <div id="signinDiv" class="top">
-    <input id="signinBtn" type="button" value="Sign In/Register" onclick=""/>
+  <div id="loginDiv" class="top">
+    <input id="loginBtn" class='loginBtnClass' type="button" value="Log In/Register" />
   </div>
-  <div id="signinPopup">
+  <div id="loginPopup">
     <span id='welcome'>Welcome!</span>
     <form>
       <input id="usernameInput" type="text" autocomplete="on" placeholder="username" /><br>
@@ -43,11 +43,24 @@
       <input id="newPassInput2" type="password" placeholder="confirm password" /><br>   
     </form>
   </div>
+  <div id='logoutPopup'>
+    <input id='logoutBtn' type='button' value='Logout'>
+  </div>
   <div id="tagDiv">  
-    
+    <div id='insertTagDiv'>
+      <div>
+        <input id='tagInput' class='mainInput' type='text' placeholder='Add new tag here'/>
+      </div>
+      <a id='addNewTagBtn' href='javascript:void(0);' type='image' src='img/orangePlus32x32.png' class='add' onclick='wo.createNewTag()'/>
+    </div>
+    <div id='tagsDiv'>
+    </div>
   </div>
   <div id="todoDiv">
-    
+    <div>
+      <input id='todoInput' class='mainInput' type='text' placeholder='Add new todo item here'/>
+    </div>
+      <input id='addNewTodoBtn' type='image' src='img/bluePlus32x32.png' class='add' />
   </div>
 </body>
 

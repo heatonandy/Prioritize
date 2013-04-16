@@ -27,8 +27,15 @@ var wo = (function packageTodo() {
 	// variable declarations
 	var currentUser, tempUser, uName, pass;
 	// function declarations
+	var createNewTag, createNewTodo;
+
+	createNewTag = function () {
+		$('#tagsDiv').append("<input class='tag' type='button' value='" + $('#tagInput').val().toString() + "' />");
+	}
+	// jQuery dialog login functions
 	$(function () {
-		$("#signinPopup").dialog({
+		// login div jquery dialog
+		$("#loginPopup").dialog({
 			autoOpen: false,
 			show: {
 				effect: "drop",
@@ -43,34 +50,41 @@ var wo = (function packageTodo() {
 			position: {
 				my: 'top',
 				at: 'right bottom',
-				of: $('#signinDiv')
+				of: $('#loginDiv')
 			},
 			buttons: [
 				{
-					text: "Sign In",
+					text: "Login",
 					click: function() {
 						uName = $("#usernameInput").val().toString();
 						pass = $("#passwordInput").val().toString();
 						Parse.User.logIn(uName, pass, {
 							success: function(user) {
-								$("#signinPopup").dialog("close");
+								$("#loginPopup").dialog("close");
+								currentUser = Parse.User.current();
+								// change login button to log out
+								$(".loginBtnClass").val(currentUser.getUsername()).attr('class', 'userBtnClass');
 							}
 						});
 					} // end click function 
-				}, // end button 1
+				}, // end Log in button
 				{
 					text: "Close",
 					click: function() {
 						$(this).dialog("close");
-					}
-				}
-			]
-		}); // end signinPopup dialog select
+					} // end click function
+				} // end Close button
+			], // end button array
+			open: function() {
+				$(this).parent().find('button:nth-child(1)').focus();
+			}
+		}); // end loginPopup dialog select
 		$(".ui-dialog-titlebar").hide();
-		// signin/register button click
-		$("#signinBtn").click(function() {
-			$("#signinPopup").dialog("open"); 
-		}); // end #signingBtn select
+		// login/register button click
+		$(document).on('click', '.loginBtnClass', function() {
+			$("#loginPopup").dialog("open"); 
+		}); // end #loginBtn select
+		// register div jquery dialog
 		$("#registerPopup").dialog({
 			autoOpen: false,
 			show: {
@@ -87,7 +101,7 @@ var wo = (function packageTodo() {
 			position: {
 				my: 'top',
 				at: 'right bottom',
-				of: $('#signinDiv')
+				of: $('#loginDiv')
 			},
 			buttons: [
 				{
@@ -95,28 +109,65 @@ var wo = (function packageTodo() {
 					click: function() {
 						$(this).dialog("close");
 						tempUser = new Parse.User();
-						user.set("firstname", $("#newFNameInput").val().toString());
-						alert("first name: " + $("#newFNameInput").val().toString());
-						user.set("lastname", $("#newLNameInput").val().toString());
-						user.set("username", $("#newUnameInput").val().toString());
-						user.set("password", $("#newPassInput").val().toString());
+						tempUser.set("firstname", $("#newFNameInput").val().toString());
+						tempUser.set("lastname", $("#newLNameInput").val().toString());
+						tempUser.set("username", $("#newUnameInput").val().toString());
+						tempUser.set("password", $("#newPassInput").val().toString());
 
 						user.signUp(null, {
 							success: function(user) {
 								$("#registerPopup").dialog("close");
+								currentUser = Parse.User.current();
+								alert("Current user is " + currentUser.getUsername());
 							},
 							error: function(user, error) {
 								alert("There was an error: " + error.code + " " + error.message);
 							}
 						}); // end user signup
 					}
+				},
+				{
+					text: "Cancel",
+					click: function() {
+						$(this).dialog("close");
+					}
 				}
 			]
-		}); // end signinPopup dialog select
+		}); // end registerPopup dialog select
 		$(".ui-dialog-titlebar").hide();
 		$("#registerBtn").click(function() {
-			$("#signinPopup").dialog("close"); 
+			$("#loginPopup").dialog("close"); 
 			$("#registerPopup").dialog("open"); 
-		}); // end #signingBtn select
+		}); // end #loginBtn select
+		// logout div jquery dialog
+		$("#logoutPopup").dialog({
+			autoOpen: false,
+			show: {
+				effect: "drop",
+				duration: 500
+			},
+			hide: {
+				effect: "drop",
+				duration: "500"
+			}, 
+			modal: true,
+			width: 175,
+			height: 75,
+			position: {
+				my: 'top',
+				at: 'right bottom',
+				of: $('#loginDiv')
+			}
+		}); // end logoutPopup dialog select
+		$(".ui-dialog-titlebar").hide();
+		$(document).on('click', '.userBtnClass', function() {
+			$("#logoutPopup").dialog("open");
+		}); // end #looutBtn select
+		// logout event handling
+		$("#logoutBtn").click(function() {
+			Parse.User.logOut();
+			$(".userBtnClass").val("Login/Register").attr('class', 'loginBtnClass');
+			$("#logoutPopup").dialog("close");
+		});
 	}); // end anonymous jquery dialog funciton
 }()); // end wo 
